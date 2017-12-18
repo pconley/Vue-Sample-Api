@@ -1,8 +1,7 @@
-# test2-app
+# vue-sample-app
 
-> A Vue.js project
-
-based on a tutorial at https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2 
+> a simple vue application based on a tutorial at https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2 
+> it does not have any extrental calls to APIs
 
 ## Build Setup
 
