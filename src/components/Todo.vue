@@ -2,7 +2,7 @@
   <div class='ui centered card'>
     <div class="content" v-show="!isEditing">
       <div class='header'>
-          {{ todo.title }}
+          {{todo.id}}: {{ todo.title }}
       </div>
       <div class='meta'>
           {{ todo.project }}
@@ -33,11 +33,11 @@
         </div>
       </div>
     </div>
-    <div class='ui bottom attached green basic button' v-show="!isEditing &&todo.done" disabled>
+    <div class='ui bottom attached green basic button' v-show="!isEditing &&todo.completed" disabled>
         Completed
     </div>
     <div class='ui bottom attached red basic button' 
-      v-show="!isEditing && !todo.done"
+      v-show="!isEditing && !todo.completed"
       v-on:click="completeTodo(todo)"
     >
         Pending
@@ -66,11 +66,8 @@ export default {
       this.$emit('delete-todo', todo);
     },
     completeTodo(todo) {
-        console.log('*** complete');
-        // the turorial passes the event up to the parent
-        //this.$emit('complete-todo', todo);
-        // but why not just apply the change directly???
-        todo.done = true; 
+        console.log('*** complete in todo');
+        this.$emit('complete-todo', todo);
       },
   },
 };

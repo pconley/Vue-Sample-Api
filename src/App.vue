@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <todo-list v-bind:todos="todos"></todo-list>
-    <create-todo v-on:add-todo="addTodo"></create-todo>
+    <create-todo v-on:create-todo="addTodo"></create-todo>
   </div>
 </template>
 
 <script>
 import TodoList from './components/TodoList';
 import CreateTodo from './components/CreateTodo';
+
+import TodoService from './services/TodoService';
 
 export default {
   name: 'app',
@@ -17,36 +19,14 @@ export default {
   // data function avails data to the template
   data() {
     return {
-      todos: [{
-        id: 1,
-        title: 'Todo A',
-        project: 'Project A',
-        done: false,
-      }, {
-        id: 2,
-        title: 'Todo B',
-        project: 'Project B',
-        done: true,
-      }, {
-        id: 3,
-        title: 'Todo C',
-        project: 'Project C',
-        done: false,
-      }, {
-        id: 4,
-        title: 'Todo D',
-        project: 'Project D',
-        done: false,
-      }],
+      todos: [],
     };
   },
   methods: {
-    addTodo(title) {
-      console.log('*** add todo');
-      this.todos.push({
-        title,
-        done: false,
-      });
+    addTodo(object) {
+      console.log('*** add todo', this.todos.length, object);
+      object.id = 100+this.todos.length;
+      this.todos.push(object);
     },
   },
 };

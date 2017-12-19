@@ -53,7 +53,7 @@ export default {
         this.$emit('create-todo', {
           title,
           project,
-          done: false,
+          completed: false,
         });
         this.newTodoText = '';
       }

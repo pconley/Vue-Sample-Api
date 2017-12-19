@@ -1,7 +1,20 @@
-# vue-sample-app
+# vue-sample-api
 
-> a simple vue application based on a tutorial at https://scotch.io/tutorials/build-a-to-do-app-with-vue-js-2 
-> it does not have any extrental calls to APIs
+> a simple vue application based on my Vue-Sample-App 
+> but extended to make use of Axios to get to an API using a second tutorial at
+> https://alligator.io/vuejs/rest-api-axios/
+
+# Notes
+
+> there was an initial issue where the add function was not adding the todo to the 
+> same list that was used by the list.  to overcome this i changed the "data" to not
+> include a "todos" so that only the prop was used
+
+> there are two components that both use the todos that are defined in the App.vue
+> but the functions that act on the todos are implemented two ways... the list acts
+> directly on the list because it bound as a property; but the create does not.
+> the create emits an event that bubles up to the App so it can acct on the todo.
+> Either way works and the differnce is retained to show the techniques.
 
 ## Build Setup
 
